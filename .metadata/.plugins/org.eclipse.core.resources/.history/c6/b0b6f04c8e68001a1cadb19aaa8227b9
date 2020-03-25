@@ -1,0 +1,57 @@
+package com.aes.procesos.autogestion.sor.util;
+
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+
+import org.springframework.stereotype.Service;
+
+import com.aes.procesos.autogestion.sor.model.RegistroAccionCorrectiva;
+import com.aes.procesos.autogestion.sor.model.ServicioContratado;
+import com.aes.procesos.autogestion.sor.model.dto.EstadoServicioContratadoDTO;
+import com.aes.procesos.autogestion.sor.model.dto.ResultadoEjecucionAccionCorrectivaDTO;
+import com.aes.procesos.autogestion_integracion_sor.EjecutarAccionCorrectivaAutomaticaResponse;
+import com.aes.procesos.autogestion_integracion_sor.EstadoServicioContratado;
+import com.aes.procesos.autogestion_integracion_sor.ResultadoOperacion;
+import com.aes.procesos.autogestion_integracion_sor.ValidarEstadoServicioByIdResponse;
+
+@Service
+public class Traductor {
+
+	public ValidarEstadoServicioByIdResponse toResponse(EstadoServicioContratadoDTO dto) {
+		ValidarEstadoServicioByIdResponse response = new ValidarEstadoServicioByIdResponse();
+		
+		EstadoServicioContratado estado = new EstadoServicioContratado();
+		estado.setActivo(dto.isActivo());
+		
+		String pattern = "dd/MM/yyyy";
+		SimpleDateFormat sdf = new SimpleDateFormat(pattern);
+		
+		estado.setFechaCorte(sdf.format(dto.getFechaCorte()));
+		estado.setValorAPagar(dto.getValorAPagar());
+		response.setEstado(estado);
+		return response;
+	}
+
+	public EjecutarAccionCorrectivaAutomaticaResponse toResponse(
+			ResultadoEjecucionAccionCorrectivaDTO resultadoDTO) {
+		EjecutarAccionCorrectivaAutomaticaResponse response = new EjecutarAccionCorrectivaAutomaticaResponse();
+		ResultadoOperacion resultadoAC = new ResultadoOperacion();
+		
+		resultadoAC.setExitoso(resultadoDTO.getCodigo().equalsIgnoreCase("OK"));
+		resultadoAC.setCodigo(resultadoDTO.getCodigo());
+		resultadoAC.setDescripcion(resultadoDTO.getMensaje());
+		response.setResultado(resultadoAC);
+		return response;
+	}
+
+	public RegistroAccionCorrectiva toEntity(ResultadoEjecucionAccionCorrectivaDTO dto, ServicioContratado servicioContratado) {
+		RegistroAccionCorrectiva entity = new RegistroAccionCorrectiva();
+		entity.setAccionEjecutada(dto.getTipoAccion());
+		entity.setExitosos(dto.getCodigo().equalsIgnoreCase("OK"));
+		entity.setResultado("codigo: "+ dto.getCodigo() + ", mensaje: " + dto.getMensaje());
+		entity.setServicioContratado(servicioContratado);
+		entity.setTimestamp(new Timestamp(System.currentTimeMillis()));
+		return entity;
+	}
+
+}

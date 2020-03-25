@@ -1,0 +1,74 @@
+package com.aes.procesos.autogestion.sor.model;
+
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+@Entity
+@Table(name = "auditoria")
+public class Auditoria {
+	
+	@Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private Long id;
+	
+	private String idServicio;
+	
+	private String sesion;
+	
+	private String code;
+	
+	private String mensaje;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getIdServicio() {
+		return idServicio;
+	}
+
+	public void setIdServicio(String idServicio) {
+		this.idServicio = idServicio;
+	}
+
+	public String getSesion() {
+		return sesion;
+	}
+
+	public void setSesion(String sesion) {
+		this.sesion = sesion;
+	}
+
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+	public String getMensaje() {
+		return mensaje;
+	}
+
+	public void setMensaje(String mensaje) {
+		this.mensaje = mensaje;
+	}
+
+	
+}

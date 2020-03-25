@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<bindings version="2.1" xmlns="http://java.sun.com/xml/ns/jaxb">
+  <!--
+
+Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.2 
+Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
+Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
+Generado el: 2020.03.24 a las 10:45:26 PM COT 
+
+  -->
+  <bindings scd="x-schema::tns" xmlns:tns="http://aes.com/procesos/autogestion-integracion-sor">
+    <schemaBindings map="false">
+      <package name="com.aes.procesos.autogestion_integracion_sor"/>
+    </schemaBindings>
+    <bindings scd="tns:validarEstadoServicioByIdRequest">
+      <class ref="com.aes.procesos.autogestion_integracion_sor.ValidarEstadoServicioByIdRequest"/>
+    </bindings>
+    <bindings scd="tns:validarEstadoServicioByIdResponse">
+      <class ref="com.aes.procesos.autogestion_integracion_sor.ValidarEstadoServicioByIdResponse"/>
+    </bindings>
+    <bindings scd="~tns:estadoServicioContratado">
+      <class ref="com.aes.procesos.autogestion_integracion_sor.EstadoServicioContratado"/>
+    </bindings>
+    <bindings scd="~tns:estadoServicioHADA">
+      <class ref="com.aes.procesos.autogestion_integracion_sor.EstadoServicioHADA"/>
+    </bindings>
+    <bindings scd="~tns:estadoFinancieroServicio">
+      <class ref="com.aes.procesos.autogestion_integracion_sor.EstadoFinancieroServicio"/>
+    </bindings>
+    <bindings scd="~tns:error">
+      <class ref="com.aes.procesos.autogestion_integracion_sor.Error"/>
+    </bindings>
+    <bindings scd="tns:registrarAuditoriaRequest">
+      <class ref="com.aes.procesos.autogestion_integracion_sor.RegistrarAuditoriaRequest"/>
+    </bindings>
+    <bindings scd="tns:registrarAuditoriaResponse">
+      <class ref="com.aes.procesos.autogestion_integracion_sor.RegistrarAuditoriaResponse"/>
+    </bindings>
+    <bindings scd="~tns:resultadoRegistro">
+      <class ref="com.aes.procesos.autogestion_integracion_sor.ResultadoRegistro"/>
+    </bindings>
+    <bindings scd="tns:consultarAveriasByIdServicioRequest">
+      <class ref="com.aes.procesos.autogestion_integracion_sor.ConsultarAveriasByIdServicioRequest"/>
+    </bindings>
+    <bindings scd="tns:consultarAveriasByIdServicioResponse">
+      <class ref="com.aes.procesos.autogestion_integracion_sor.ConsultarAveriasByIdServicioResponse"/>
+    </bindings>
+    <bindings scd="~tns:incidenciaResponse">
+      <class ref="com.aes.procesos.autogestion_integracion_sor.IncidenciaResponse"/>
+    </bindings>
+    <bindings scd="tns:generarAveriaRequest">
+      <class ref="com.aes.procesos.autogestion_integracion_sor.GenerarAveriaRequest"/>
+    </bindings>
+    <bindings scd="tns:generarAveriaResponse">
+      <class ref="com.aes.procesos.autogestion_integracion_sor.GenerarAveriaResponse"/>
+    </bindings>
+    <bindings scd="tns:generarPeticionRequest">
+      <class ref="com.aes.procesos.autogestion_integracion_sor.GenerarPeticionRequest"/>
+    </bindings>
+    <bindings scd="tns:generarPeticionResponse">
+      <class ref="com.aes.procesos.autogestion_integracion_sor.GenerarPeticionResponse"/>
+    </bindings>
+    <bindings scd="tns:consultarPeticionesByIdServicioRequest">
+      <class ref="com.aes.procesos.autogestion_integracion_sor.ConsultarPeticionesByIdServicioRequest"/>
+    </bindings>
+    <bindings scd="tns:consultarPeticionesByIdServicioResponse">
+      <class ref="com.aes.procesos.autogestion_integracion_sor.ConsultarPeticionesByIdServicioResponse"/>
+    </bindings>
+    <bindings scd="tns:consultarAfectacionFallaMasivaByIdServicioRequest">
+      <class ref="com.aes.procesos.autogestion_integracion_sor.ConsultarAfectacionFallaMasivaByIdServicioRequest"/>
+    </bindings>
+    <bindings scd="tns:consultarAfectacionFallaMasivaByIdServicioResponse">
+      <class ref="com.aes.procesos.autogestion_integracion_sor.ConsultarAfectacionFallaMasivaByIdServicioResponse"/>
+    </bindings>
+    <bindings scd="~tns:fallaMasivaResponse">
+      <class ref="com.aes.procesos.autogestion_integracion_sor.FallaMasivaResponse"/>
+    </bindings>
+    <bindings scd="tns:ejecutarAccionCorrectivaAutomaticaRequest">
+      <class ref="com.aes.procesos.autogestion_integracion_sor.EjecutarAccionCorrectivaAutomaticaRequest"/>
+    </bindings>
+    <bindings scd="tns:ejecutarAccionCorrectivaAutomaticaResponse">
+      <class ref="com.aes.procesos.autogestion_integracion_sor.EjecutarAccionCorrectivaAutomaticaResponse"/>
+    </bindings>
+    <bindings scd="~tns:resultadoOperacion">
+      <class ref="com.aes.procesos.autogestion_integracion_sor.ResultadoOperacion"/>
+    </bindings>
+    <bindings scd="~tns:tipoValidacionServicio">
+      <typesafeEnumClass ref="com.aes.procesos.autogestion_integracion_sor.TipoValidacionServicio"/>
+    </bindings>
+    <bindings scd="~tns:tipoAccionCorrectivaAutomatica">
+      <typesafeEnumClass ref="com.aes.procesos.autogestion_integracion_sor.TipoAccionCorrectivaAutomatica"/>
+    </bindings>
+  </bindings>
+</bindings>
+

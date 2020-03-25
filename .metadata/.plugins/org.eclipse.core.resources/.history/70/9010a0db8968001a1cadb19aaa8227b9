@@ -1,0 +1,63 @@
+package com.aes.procesos.autogestion.sor.service;
+
+import java.sql.Timestamp;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.aes.procesos.autogestion.sor.model.Incidencia;
+import com.aes.procesos.autogestion.sor.model.ServicioContratado;
+import com.aes.procesos.autogestion.sor.repositories.IncidenciaRepository;
+import com.aes.procesos.autogestion.sor.repositories.ServicioContratadoRepository;
+
+@Service
+public class GestorIncidenciaService {
+	
+	@Autowired
+	private ServicioContratadoRepository servicioRepo;
+	
+	@Autowired
+	private IncidenciaRepository incidenciaRepo;
+
+	public void registrarAuditoria(String idServicio, String titulo, String descripcion, String canal) {
+		registrarIncidencia(idServicio, "AUDITORIA", titulo, descripcion, canal);
+	}
+	
+	public void generarPeticion(String idServicio, String titulo, String descripcion, String canal) {
+		registrarIncidencia(idServicio, "PETICION", titulo, descripcion, canal);
+	}	
+	
+	public void generarAveria(String idServicio, String titulo, String descripcion, String canal) {
+		registrarIncidencia(idServicio, "AVERIA", titulo, descripcion, canal);
+	}	
+	
+	public List<Incidencia> traerAverias(String idServicio) {
+		return traerIncidencias(idServicio, "AVERIA");
+	}	
+	
+	public List<Incidencia> traerPeticiones(String idServicio) {
+		return traerIncidencias(idServicio, "PETICION");
+	}
+	
+	private List<Incidencia> traerIncidencias(String idServicio, String tipoIncidencia) {
+		ServicioContratado servicioContratado = servicioRepo.findByIdServicio(idServicio);
+		return incidenciaRepo.findByServicioContratadoAndTipoIncidencia(servicioContratado, tipoIncidencia);
+	}
+
+	private Incidencia generarIncidencia(String idServicio, String tipoIncidencia, String titulo, String descripcion, String canal) {
+		Incidencia nueva = new Incidencia();
+		
+		ServicioContratado servicioContratado = servicioRepo.findByIdServicio(idServicio);
+		nueva.setServicioContratado(servicioContratado);
+		
+		nueva.setTipoIncidencia(tipoIncidencia);
+		nueva.setTitulo(titulo);
+		nueva.setDescripcion(descripcion);
+		nueva.setCanal(canal);
+		nueva.setTimestamp(new Timestamp(System.currentTimeMillis()));
+		nueva.setFechaActualizacion(nueva.getTimestamp());
+		nueva.setEstado("ABIERTO");
+	}	
+	
+}

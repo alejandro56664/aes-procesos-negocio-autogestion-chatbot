@@ -1,0 +1,50 @@
+package com.aes.procesos.autogestion.sor.util;
+
+import java.text.SimpleDateFormat;
+
+import org.springframework.stereotype.Service;
+
+import com.aes.procesos.autogestion.sor.model.RegistroAccionCorrectiva;
+import com.aes.procesos.autogestion.sor.model.dto.EstadoServicioContratadoDTO;
+import com.aes.procesos.autogestion.sor.model.dto.ResultadoEjecucionAccionCorrectivaDTO;
+import com.aes.procesos.autogestion_integracion_sor.EjecutarAccionCorrectivaAutomaticaResponse;
+import com.aes.procesos.autogestion_integracion_sor.EstadoServicioContratado;
+import com.aes.procesos.autogestion_integracion_sor.ResultadoAccionCorrectivaAutomatica;
+import com.aes.procesos.autogestion_integracion_sor.ValidarEstadoServicioByIdResponse;
+
+@Service
+public class Traductor {
+
+	public ValidarEstadoServicioByIdResponse toResponse(EstadoServicioContratadoDTO dto) {
+		ValidarEstadoServicioByIdResponse response = new ValidarEstadoServicioByIdResponse();
+		
+		EstadoServicioContratado estado = new EstadoServicioContratado();
+		estado.setActivo(dto.isActivo());
+		
+		String pattern = "dd/MM/yyyy";
+		SimpleDateFormat sdf = new SimpleDateFormat(pattern);
+		
+		estado.setFechaCorte(sdf.format(dto.getFechaCorte()));
+		estado.setValorAPagar(dto.getValorAPagar());
+		response.setEstado(estado);
+		return response;
+	}
+
+	public EjecutarAccionCorrectivaAutomaticaResponse toResponse(
+			ResultadoEjecucionAccionCorrectivaDTO resultadoDTO) {
+		EjecutarAccionCorrectivaAutomaticaResponse response = new EjecutarAccionCorrectivaAutomaticaResponse();
+		ResultadoAccionCorrectivaAutomatica resultadoAC = new ResultadoAccionCorrectivaAutomatica();
+		
+		resultadoAC.setExitoso(resultadoDTO.getCodigo().equalsIgnoreCase("OK"));
+		resultadoAC.setCodigo(resultadoDTO.getCodigo());
+		resultadoAC.setDescripcion(resultadoDTO.getMensaje());
+		response.setResultado(resultadoAC);
+		return response;
+	}
+
+	public RegistroAccionCorrectiva toEntity(ResultadoEjecucionAccionCorrectivaDTO resultado) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

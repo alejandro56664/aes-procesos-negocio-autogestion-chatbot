@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="d33ffb6d-1c94-4032-b147-887c668d8cda" activeEnvironment="Default" name="autogestion-integracion-sor" resourceRoot="" soapui-version="5.5.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="e730a831-6c07-4ef1-b57c-c986cb896f79" wsaVersion="NONE" name="AutogestionSORPortSoap11" type="wsdl" bindingName="{http://aes.com.co/procesos/autogestion-integracion-sor}AutogestionSORPortSoap11" soapVersion="1_1" anonymous="optional" definition="http://localhost:8088/ws/autogestion-integracion-sor.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8088/ws/autogestion-integracion-sor.wsdl"><con:part><con:url>http://localhost:8088/ws/autogestion-integracion-sor.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://aes.com.co/procesos/autogestion-integracion-sor" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://aes.com/procesos/autogestion-integracion-sor" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://aes.com.co/procesos/autogestion-integracion-sor">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://aes.com/procesos/autogestion-integracion-sor" xmlns:tns="http://aes.com/procesos/autogestion-integracion-sor" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="validarEstadoServicioByIdRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="idServicio" type="xs:string"/>
+            <xs:element name="tipoValidacion" type="tns:tipoValidacionServicio"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="validarEstadoServicioByIdResponse">
+        <xs:complexType>
+          <xs:choice>
+            <xs:element name="estado" type="tns:estadoServicioContratado"/>
+            <xs:element name="estadoHADA" type="tns:estadoServicioHADA"/>
+            <xs:element name="estadoFinanciero" type="tns:estadoFinancieroServicio"/>
+            <xs:element name="error" type="tns:error"/>
+          </xs:choice>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="registrarAuditoriaRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="idServicio" type="xs:string"/>
+            <xs:element name="sesion" type="xs:string"/>
+            <xs:element name="codigo" type="xs:string"/>
+            <xs:element name="mensaje" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="registrarAuditoriaResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="resultado" type="tns:resultadoRegistro"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="consultarAveriasByIdServicioRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="idServicio" type="xs:string"/>
+            <xs:element name="estado" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="consultarAveriasByIdServicioResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="100" name="resultado" type="tns:incidenciaResponse"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="generarAveriaRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="idServicio" type="xs:string"/>
+            <xs:element name="titulo" type="xs:string"/>
+            <xs:element name="descripcion" type="xs:string"/>
+            <xs:element name="canal" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="generarAveriaResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="resultado" type="tns:resultadoRegistro"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="generarPeticionRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="idServicio" type="xs:string"/>
+            <xs:element name="titulo" type="xs:string"/>
+            <xs:element name="descripcion" type="xs:string"/>
+            <xs:element name="canal" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="generarPeticionResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="resultado" type="tns:resultadoRegistro"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="consultarPeticionesByIdServicioRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="idServicio" type="xs:string"/>
+            <xs:element name="estado" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="consultarPeticionesByIdServicioResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="resultado" type="tns:incidenciaResponse"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="consultarAfectacionFallaMasivaByIdServicioRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="idServicio" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="consultarAfectacionFallaMasivaByIdServicioResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="resultado" type="tns:fallaMasivaResponse"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ejecutarAccionCorrectivaAutomaticaRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="idServicio" type="xs:string"/>
+            <xs:element name="accion" type="tns:tipoAccionCorrectivaAutomatica"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ejecutarAccionCorrectivaAutomaticaResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="resultado" type="tns:resultadoOperacion"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="incidenciaResponse">
+        <xs:sequence>
+          <xs:element name="timestamp" type="xs:string"/>
+          <xs:element name="titulo" type="xs:string"/>
+          <xs:element name="descripcion" type="xs:string"/>
+          <xs:element name="canal" type="xs:string"/>
+          <xs:element name="estado" type="xs:string"/>
+          <xs:element name="fechaEstimadaResolucion" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="fallaMasivaResponse">
+        <xs:sequence>
+          <xs:element name="existeFallaMasivaAsociada" type="xs:boolean"/>
+          <xs:element name="servicioAfectado" type="xs:string"/>
+          <xs:element name="timestamp" type="xs:string"/>
+          <xs:element name="descripcion" type="xs:string"/>
+          <xs:element name="estado" type="xs:string"/>
+          <xs:element name="fechaEstimadaResolucion" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="estadoServicioContratado">
+        <xs:sequence>
+          <xs:element name="activo" type="xs:boolean"/>
+          <xs:element name="descripcionPlan" type="xs:string"/>
+          <xs:element name="valorAPagar" type="xs:float"/>
+          <xs:element name="fechaCorte" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="estadoServicioHADA">
+        <xs:sequence>
+          <xs:element name="bloqueado" type="xs:boolean"/>
+          <xs:element name="fechaBloqueo" type="xs:string"/>
+          <xs:element name="motivoBloqueo" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="estadoFinancieroServicio">
+        <xs:sequence>
+          <xs:element name="codEstado" type="xs:string"/>
+          <xs:element name="valorAPagar" type="xs:float"/>
+          <xs:element name="motivoSuspension" type="xs:string"/>
+          <xs:element name="fechaSuspension" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="resultadoOperacion">
+        <xs:sequence>
+          <xs:element name="exitoso" type="xs:boolean"/>
+          <xs:element name="codigo" type="xs:string"/>
+          <xs:element name="descripcion" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="resultadoRegistro">
+        <xs:sequence>
+          <xs:element name="id" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="error">
+        <xs:sequence>
+          <xs:element name="codigo" type="xs:string"/>
+          <xs:element name="descripcion" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="tipoAccionCorrectivaAutomatica">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="ENVIAR_REFRESH"/>
+          <xs:enumeration value="EJECUTAR_CONCILIACION"/>
+          <xs:enumeration value="EJECUTAR_CONCILIACION_MOVIL"/>
+          <xs:enumeration value="EJECUTAR_RESET_PUERTO"/>
+          <xs:enumeration value="EJECUTAR_PRUEBAS_FISICAS"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="tipoValidacionServicio">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="FINANCIERO"/>
+          <xs:enumeration value="HADA"/>
+          <xs:enumeration value="GENERAL"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="validarEstadoServicioByIdRequest">
+    <wsdl:part element="sch:validarEstadoServicioByIdRequest" name="validarEstadoServicioByIdRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="generarAveriaRequest">
+    <wsdl:part element="sch:generarAveriaRequest" name="generarAveriaRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="generarAveriaResponse">
+    <wsdl:part element="sch:generarAveriaResponse" name="generarAveriaResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultarAfectacionFallaMasivaByIdServicioResponse">
+    <wsdl:part element="sch:consultarAfectacionFallaMasivaByIdServicioResponse" name="consultarAfectacionFallaMasivaByIdServicioResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultarPeticionesByIdServicioResponse">
+    <wsdl:part element="sch:consultarPeticionesByIdServicioResponse" name="consultarPeticionesByIdServicioResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="validarEstadoServicioByIdResponse">
+    <wsdl:part element="sch:validarEstadoServicioByIdResponse" name="validarEstadoServicioByIdResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="registrarAuditoriaRequest">
+    <wsdl:part element="sch:registrarAuditoriaRequest" name="registrarAuditoriaRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultarAveriasByIdServicioRequest">
+    <wsdl:part element="sch:consultarAveriasByIdServicioRequest" name="consultarAveriasByIdServicioRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultarAveriasByIdServicioResponse">
+    <wsdl:part element="sch:consultarAveriasByIdServicioResponse" name="consultarAveriasByIdServicioResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ejecutarAccionCorrectivaAutomaticaResponse">
+    <wsdl:part element="sch:ejecutarAccionCorrectivaAutomaticaResponse" name="ejecutarAccionCorrectivaAutomaticaResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="generarPeticionResponse">
+    <wsdl:part element="sch:generarPeticionResponse" name="generarPeticionResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="generarPeticionRequest">
+    <wsdl:part element="sch:generarPeticionRequest" name="generarPeticionRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultarPeticionesByIdServicioRequest">
+    <wsdl:part element="sch:consultarPeticionesByIdServicioRequest" name="consultarPeticionesByIdServicioRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ejecutarAccionCorrectivaAutomaticaRequest">
+    <wsdl:part element="sch:ejecutarAccionCorrectivaAutomaticaRequest" name="ejecutarAccionCorrectivaAutomaticaRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="registrarAuditoriaResponse">
+    <wsdl:part element="sch:registrarAuditoriaResponse" name="registrarAuditoriaResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultarAfectacionFallaMasivaByIdServicioRequest">
+    <wsdl:part element="sch:consultarAfectacionFallaMasivaByIdServicioRequest" name="consultarAfectacionFallaMasivaByIdServicioRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="AutogestionSORPort">
+    <wsdl:operation name="validarEstadoServicioById">
+      <wsdl:input message="tns:validarEstadoServicioByIdRequest" name="validarEstadoServicioByIdRequest"></wsdl:input>
+      <wsdl:output message="tns:validarEstadoServicioByIdResponse" name="validarEstadoServicioByIdResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="generarAveria">
+      <wsdl:input message="tns:generarAveriaRequest" name="generarAveriaRequest"></wsdl:input>
+      <wsdl:output message="tns:generarAveriaResponse" name="generarAveriaResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarAfectacionFallaMasivaByIdServicio">
+      <wsdl:input message="tns:consultarAfectacionFallaMasivaByIdServicioRequest" name="consultarAfectacionFallaMasivaByIdServicioRequest"></wsdl:input>
+      <wsdl:output message="tns:consultarAfectacionFallaMasivaByIdServicioResponse" name="consultarAfectacionFallaMasivaByIdServicioResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarPeticionesByIdServicio">
+      <wsdl:input message="tns:consultarPeticionesByIdServicioRequest" name="consultarPeticionesByIdServicioRequest"></wsdl:input>
+      <wsdl:output message="tns:consultarPeticionesByIdServicioResponse" name="consultarPeticionesByIdServicioResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="registrarAuditoria">
+      <wsdl:input message="tns:registrarAuditoriaRequest" name="registrarAuditoriaRequest"></wsdl:input>
+      <wsdl:output message="tns:registrarAuditoriaResponse" name="registrarAuditoriaResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarAveriasByIdServicio">
+      <wsdl:input message="tns:consultarAveriasByIdServicioRequest" name="consultarAveriasByIdServicioRequest"></wsdl:input>
+      <wsdl:output message="tns:consultarAveriasByIdServicioResponse" name="consultarAveriasByIdServicioResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ejecutarAccionCorrectivaAutomatica">
+      <wsdl:input message="tns:ejecutarAccionCorrectivaAutomaticaRequest" name="ejecutarAccionCorrectivaAutomaticaRequest"></wsdl:input>
+      <wsdl:output message="tns:ejecutarAccionCorrectivaAutomaticaResponse" name="ejecutarAccionCorrectivaAutomaticaResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="generarPeticion">
+      <wsdl:input message="tns:generarPeticionRequest" name="generarPeticionRequest"></wsdl:input>
+      <wsdl:output message="tns:generarPeticionResponse" name="generarPeticionResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AutogestionSORPortSoap11" type="tns:AutogestionSORPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="validarEstadoServicioById">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="validarEstadoServicioByIdRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="validarEstadoServicioByIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="generarAveria">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="generarAveriaRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="generarAveriaResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarAfectacionFallaMasivaByIdServicio">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="consultarAfectacionFallaMasivaByIdServicioRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="consultarAfectacionFallaMasivaByIdServicioResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarPeticionesByIdServicio">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="consultarPeticionesByIdServicioRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="consultarPeticionesByIdServicioResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="registrarAuditoria">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="registrarAuditoriaRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="registrarAuditoriaResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarAveriasByIdServicio">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="consultarAveriasByIdServicioRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="consultarAveriasByIdServicioResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ejecutarAccionCorrectivaAutomatica">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="ejecutarAccionCorrectivaAutomaticaRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="ejecutarAccionCorrectivaAutomaticaResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="generarPeticion">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="generarPeticionRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="generarPeticionResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AutogestionSORPortService">
+    <wsdl:port binding="tns:AutogestionSORPortSoap11" name="AutogestionSORPortSoap11">
+      <soap:address location="http://localhost:8088/ws"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8088/ws</con:endpoint></con:endpoints><con:operation id="58393da0-3498-4181-a6e6-34a07fa23a44" isOneWay="false" action="" name="consultarAfectacionFallaMasivaByIdServicio" bindingOperationName="consultarAfectacionFallaMasivaByIdServicio" type="Request-Response" outputName="consultarAfectacionFallaMasivaByIdServicioResponse" inputName="consultarAfectacionFallaMasivaByIdServicioRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="957db53d-2625-4542-b61b-3aaae105b0f8" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8088/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:aut="http://aes.com/procesos/autogestion-integracion-sor">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <aut:consultarAfectacionFallaMasivaByIdServicioRequest>\r
+         <aut:idServicio>0318340955</aut:idServicio>\r
+      </aut:consultarAfectacionFallaMasivaByIdServicioRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://aes.com.co/procesos/autogestion-integracion-sor/AutogestionSORPort/consultarAfectacionFallaMasivaByIdServicioRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call id="30072ee3-70c1-465c-b125-2f575fbe3919" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8088/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:aut="http://aes.com/procesos/autogestion-integracion-sor">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <aut:consultarAfectacionFallaMasivaByIdServicioRequest>\r
+         <aut:idServicio>?</aut:idServicio>\r
+      </aut:consultarAfectacionFallaMasivaByIdServicioRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://aes.com.co/procesos/autogestion-integracion-sor/AutogestionSORPort/consultarAfectacionFallaMasivaByIdServicioRequest"/></con:call></con:operation><con:operation id="cb1adc0d-976a-4f95-a092-04c3f5c0f7c4" isOneWay="false" action="" name="consultarAveriasByIdServicio" bindingOperationName="consultarAveriasByIdServicio" type="Request-Response" outputName="consultarAveriasByIdServicioResponse" inputName="consultarAveriasByIdServicioRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="18fc2cc1-22da-46d7-957c-d00596725efc" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8088/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:aut="http://aes.com/procesos/autogestion-integracion-sor">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <aut:consultarAveriasByIdServicioRequest>\r
+         <aut:idServicio>3176455493</aut:idServicio>\r
+      </aut:consultarAveriasByIdServicioRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://aes.com.co/procesos/autogestion-integracion-sor/AutogestionSORPort/consultarAveriasByIdServicioRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call id="4cf41014-e8cc-499d-b575-b77e97a2973e" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8088/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:aut="http://aes.com/procesos/autogestion-integracion-sor">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <aut:consultarAveriasByIdServicioRequest>\r
+         <aut:idServicio>?</aut:idServicio>\r
+         <aut:estado>?</aut:estado>\r
+      </aut:consultarAveriasByIdServicioRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://aes.com.co/procesos/autogestion-integracion-sor/AutogestionSORPort/consultarAveriasByIdServicioRequest"/></con:call></con:operation><con:operation id="64de5996-f7bc-4ecf-b8f8-81029b5ccd9b" isOneWay="false" action="" name="consultarPeticionesByIdServicio" bindingOperationName="consultarPeticionesByIdServicio" type="Request-Response" outputName="consultarPeticionesByIdServicioResponse" inputName="consultarPeticionesByIdServicioRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="c721b077-e74c-476d-af67-ebcedde7ee51" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8088/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:aut="http://aes.com/procesos/autogestion-integracion-sor">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <aut:consultarPeticionesByIdServicioRequest>\r
+         <aut:idServicio>0318340954</aut:idServicio>\r
+         <aut:estado>CERRADA</aut:estado>\r
+      </aut:consultarPeticionesByIdServicioRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://aes.com.co/procesos/autogestion-integracion-sor/AutogestionSORPort/consultarPeticionesByIdServicioRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call id="1979685a-dad1-4ed6-bb22-1cbb60c973b2" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8088/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:aut="http://aes.com/procesos/autogestion-integracion-sor">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <aut:consultarPeticionesByIdServicioRequest>\r
+         <aut:idServicio>?</aut:idServicio>\r
+         <aut:estado>?</aut:estado>\r
+      </aut:consultarPeticionesByIdServicioRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://aes.com.co/procesos/autogestion-integracion-sor/AutogestionSORPort/consultarPeticionesByIdServicioRequest"/></con:call></con:operation><con:operation id="e07d8668-92d3-4bf6-9cdf-753b2d668ec9" isOneWay="false" action="" name="ejecutarAccionCorrectivaAutomatica" bindingOperationName="ejecutarAccionCorrectivaAutomatica" type="Request-Response" outputName="ejecutarAccionCorrectivaAutomaticaResponse" inputName="ejecutarAccionCorrectivaAutomaticaRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="16d06672-4712-4d16-9e94-49a16ee52a7d" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8088/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:aut="http://aes.com/procesos/autogestion-integracion-sor">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <aut:ejecutarAccionCorrectivaAutomaticaRequest>\r
+         <aut:idServicio>0318340954</aut:idServicio>\r
+         <aut:accion>ENVIAR_REFRESH</aut:accion>\r
+      </aut:ejecutarAccionCorrectivaAutomaticaRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://aes.com.co/procesos/autogestion-integracion-sor/AutogestionSORPort/ejecutarAccionCorrectivaAutomaticaRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call id="5e0a5ece-f1e4-467a-9fac-f8c3c1aaa125" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8088/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:aut="http://aes.com/procesos/autogestion-integracion-sor">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <aut:ejecutarAccionCorrectivaAutomaticaRequest>\r
+         <aut:idServicio>?</aut:idServicio>\r
+         <aut:accion>?</aut:accion>\r
+      </aut:ejecutarAccionCorrectivaAutomaticaRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://aes.com.co/procesos/autogestion-integracion-sor/AutogestionSORPort/ejecutarAccionCorrectivaAutomaticaRequest"/></con:call></con:operation><con:operation id="cd9e60f3-be0a-4860-887b-a1846c5ecd44" isOneWay="false" action="" name="generarAveria" bindingOperationName="generarAveria" type="Request-Response" outputName="generarAveriaResponse" inputName="generarAveriaRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="ea42b560-1be6-4861-a93a-2607984a8ee4" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8088/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:aut="http://aes.com/procesos/autogestion-integracion-sor">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <aut:generarAveriaRequest>\r
+         <aut:idServicio>3176455493</aut:idServicio>\r
+         <aut:titulo>prueba avería</aut:titulo>\r
+         <aut:descripcion>prueba avería</aut:descripcion>\r
+         <aut:canal>canal</aut:canal>\r
+      </aut:generarAveriaRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://aes.com.co/procesos/autogestion-integracion-sor/AutogestionSORPort/generarAveriaRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call id="48154786-4d3d-479e-9f27-a0e5231f2238" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8088/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:aut="http://aes.com/procesos/autogestion-integracion-sor">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <aut:generarAveriaRequest>\r
+         <aut:idServicio>?</aut:idServicio>\r
+         <aut:titulo>?</aut:titulo>\r
+         <aut:descripcion>?</aut:descripcion>\r
+         <aut:canal>?</aut:canal>\r
+      </aut:generarAveriaRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://aes.com.co/procesos/autogestion-integracion-sor/AutogestionSORPort/generarAveriaRequest"/></con:call></con:operation><con:operation id="6702b7b3-2048-44c0-a3c7-781d51c70e24" isOneWay="false" action="" name="generarPeticion" bindingOperationName="generarPeticion" type="Request-Response" outputName="generarPeticionResponse" inputName="generarPeticionRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="5d3b26f4-9805-458a-bc19-e32e5ef30c31" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8088/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:aut="http://aes.com/procesos/autogestion-integracion-sor">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <aut:generarPeticionRequest>\r
+         <aut:idServicio>?</aut:idServicio>\r
+         <aut:titulo>?</aut:titulo>\r
+         <aut:descripcion>?</aut:descripcion>\r
+         <aut:canal>?</aut:canal>\r
+      </aut:generarPeticionRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://aes.com.co/procesos/autogestion-integracion-sor/AutogestionSORPort/generarPeticionRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call id="1605aef1-e580-448b-8cf5-a3209b65fc7a" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8088/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:aut="http://aes.com/procesos/autogestion-integracion-sor">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <aut:generarPeticionRequest>\r
+         <aut:idServicio>?</aut:idServicio>\r
+         <aut:titulo>?</aut:titulo>\r
+         <aut:descripcion>?</aut:descripcion>\r
+         <aut:canal>?</aut:canal>\r
+      </aut:generarPeticionRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://aes.com.co/procesos/autogestion-integracion-sor/AutogestionSORPort/generarPeticionRequest"/></con:call></con:operation><con:operation id="d5e414b1-8708-415d-87d4-edaf9ea8224e" isOneWay="false" action="" name="registrarAuditoria" bindingOperationName="registrarAuditoria" type="Request-Response" outputName="registrarAuditoriaResponse" inputName="registrarAuditoriaRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="6ba2c0f8-f44b-4d90-81aa-fa18327c3739" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8088/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:aut="http://aes.com/procesos/autogestion-integracion-sor">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <aut:registrarAuditoriaRequest>\r
+         <aut:idServicio>?</aut:idServicio>\r
+         <aut:canal>?</aut:canal>\r
+         <aut:titulo>?</aut:titulo>\r
+         <aut:descripcion>?</aut:descripcion>\r
+      </aut:registrarAuditoriaRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://aes.com.co/procesos/autogestion-integracion-sor/AutogestionSORPort/registrarAuditoriaRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call id="30a897db-226b-4e4e-a4a4-bb10a45c6b5d" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8088/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:aut="http://aes.com/procesos/autogestion-integracion-sor">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <aut:registrarAuditoriaRequest>\r
+         <aut:idServicio>ola</aut:idServicio>\r
+         <aut:sesion>dsad</aut:sesion>\r
+         <aut:codigo>sda</aut:codigo>\r
+         <aut:mensaje>asd</aut:mensaje>\r
+      </aut:registrarAuditoriaRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://aes.com.co/procesos/autogestion-integracion-sor/AutogestionSORPort/registrarAuditoriaRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="665caf6b-4fd2-4244-a6a3-ae8f8e62c3da" isOneWay="false" action="" name="validarEstadoServicioById" bindingOperationName="validarEstadoServicioById" type="Request-Response" outputName="validarEstadoServicioByIdResponse" inputName="validarEstadoServicioByIdRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="866ad573-1b72-41eb-9ad1-1a54b3cd9fef" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8088/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:aut="http://aes.com/procesos/autogestion-integracion-sor">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <aut:validarEstadoServicioByIdRequest>\r
+         <aut:idServicio>0318340955</aut:idServicio>\r
+         <aut:tipoValidacion>GENERAL</aut:tipoValidacion>\r
+      </aut:validarEstadoServicioByIdRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://aes.com.co/procesos/autogestion-integracion-sor/AutogestionSORPort/validarEstadoServicioByIdRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call id="983783d5-97e7-4f4e-89fc-5a6baf01aa85" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8088/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:aut="http://aes.com/procesos/autogestion-integracion-sor">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <aut:validarEstadoServicioByIdRequest>\r
+         <aut:idServicio>?</aut:idServicio>\r
+         <aut:tipoValidacion>?</aut:tipoValidacion>\r
+      </aut:validarEstadoServicioByIdRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://aes.com.co/procesos/autogestion-integracion-sor/AutogestionSORPort/validarEstadoServicioByIdRequest"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

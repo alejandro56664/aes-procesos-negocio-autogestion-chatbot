@@ -1,0 +1,12 @@
+package com.aes.procesos.autogestion.sor.repositories;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.aes.procesos.autogestion.sor.model.Incidencia;
+
+@Repository
+public interface PeticionRepository extends JpaRepository<Peticion, Long> {
+
+}
+

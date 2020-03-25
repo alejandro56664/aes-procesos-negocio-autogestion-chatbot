@@ -1,0 +1,73 @@
+package com.aes.procesos.autogestion.sor.service;
+
+import java.sql.Timestamp;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.aes.procesos.autogestion.sor.model.Averia;
+import com.aes.procesos.autogestion.sor.model.Incidencia;
+import com.aes.procesos.autogestion.sor.model.Peticion;
+import com.aes.procesos.autogestion.sor.model.ServicioContratado;
+import com.aes.procesos.autogestion.sor.repositories.AveriaRepository;
+import com.aes.procesos.autogestion.sor.repositories.IncidenciaRepository;
+import com.aes.procesos.autogestion.sor.repositories.PeticionRepository;
+import com.aes.procesos.autogestion.sor.repositories.ServicioContratadoRepository;
+import com.aes.procesos.autogestion.sor.util.Traductor;
+
+@Service
+public class GestorIncidenciaService {
+	
+	@Autowired
+	private ServicioContratadoRepository servicioRepo;
+	
+	@Autowired
+	private IncidenciaRepository incidenciaRepo;
+	
+	@Autowired
+	private AveriaRepository averiaRepo;
+	
+	@Autowired
+	private PeticionRepository peticionRepo;
+	
+	@Autowired
+	private Traductor traductor;
+
+
+	public void registrarIncidencia(String idServicio, String tipoIncidencia, String resultado) {
+		Incidencia nueva = new Incidencia();
+		
+		ServicioContratado servicioContratado = servicioRepo.findByIdServicio(idServicio);
+		nueva.setServicioContratado(servicioContratado);
+		nueva.setTimestamp(new Timestamp(System.currentTimeMillis()));
+		
+		nueva.setTipoIncidencia(tipoIncidencia);
+		nueva.setResultado(resultado);
+		incidenciaRepo.save(nueva);
+	}	
+	
+	public void registrarPeticion(String idServicio, String titulo, String descripcion) {
+		Peticion nueva = new Peticion();
+		
+		ServicioContratado servicioContratado = servicioRepo.findByIdServicio(idServicio);
+		nueva.setServicioContratado(servicioContratado);
+		nueva.setTimestamp(new Timestamp(System.currentTimeMillis()));
+		
+		nueva.setTitulo(titulo);
+		nueva.setDescripcion(descripcion);
+		peticionRepo.save(nueva);
+	}	
+	
+	public void registrarAveria(String idServicio, String accion) {
+		Averia nueva = new Averia();
+		
+		ServicioContratado servicioContratado = servicioRepo.findByIdServicio(idServicio);
+		nueva.setServicioContratado(servicioContratado);
+		nueva.setTimestamp(new Timestamp(System.currentTimeMillis()));
+		averiaRepo.save(nueva);
+	}	
+	
+	public List<Averia> traerAverias(String idServicio) {
+	}	
+}

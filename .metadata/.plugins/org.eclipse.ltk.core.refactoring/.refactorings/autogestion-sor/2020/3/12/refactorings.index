@@ -1,0 +1,44 @@
+1584330321275	Rename resource 'integraciones-backoffice.xsd'
+1584330388792	Rename resource 'web-service-sor.xsd'
+1584330484717	Rename type 'InvimaEndpoint'
+1584331366387	Rename type 'IntegracionesService'
+1584332698026	Rename compilation unit 'ValidacionesTecnicasService.java'
+1584333669161	Delete element
+1584333692687	Delete element
+1584333855801	Delete element
+1584333926496	Delete element
+1584333983593	Rename resource 'autogestion-integraciones-sor.xsd'
+1584374812187	Copy compilation unit
+1584413875488	Copy compilation unit
+1584414056831	Copy compilation unit
+1584414160798	Copy compilation unit
+1584414304861	Copy compilation unit
+1584414310631	Rename type 'ResultadoEjecucionAccionesCorrectivas'
+1584414938761	Copy compilation unit
+1584457543348	Rename type 'RegistroEjecutorAccionesCorrectivas'
+1584459465491	Rename compilation unit 'EjecutorAccionesCorrectivasService.java'
+1584459515712	Rename type 'RegistroAccionesCorrectivasRepository'
+1584459532962	Rename type 'RegistroAccionesCorrectivas'
+1584459665483	Rename type 'ResultadoEjecucionAccionesCorrectivasDTO'
+1584460437100	Rename method 'toEjecutarAccionCorrectivaAutomaticaResponse'
+1584460457676	Rename method 'toValidarEstadoServicioByIdResponse'
+1584466605981	Copy compilation unit
+1584466616780	Rename type 'RegistroIncidencias'
+1584466715155	Copy compilation unit
+1584466885676	Rename type 'RegistroIncidencia'
+1584466912411	Rename type 'PeticionFallaServicio'
+1584466928995	Rename type 'RegistroIncidenciaRepository'
+1584466994996	Copy compilation unit
+1584467006517	Copy compilation unit
+1584467019857	Copy compilation unit
+1584470388799	Delete elements
+1584732101685	Copy compilation unit
+1584732112958	Copy compilation unit
+1584838458892	Rename method 'findByServicioContratadoOrderByTimestampDesc'
+1584893171819	Copy compilation unit
+1584893326492	Rename type 'AfectacionMasiva'
+1584893730786	Copy compilation unit
+1584893825877	Copy compilation unit
+1584893877836	Rename type 'AfectactadoFallaMasiva'
+1584894291313	Copy compilation unit
+1584907082353	Copy compilation unit

@@ -1,0 +1,10 @@
+
+‡squid:S1602o"SRemove useless curly braces around statement and then remove useless return keyword(û†ä8ã¶ÄÕ.HÇRMINORZ
+CODE_SMELL
+wsquid:S3655¯"ICall "posibleAfectadoFallaMasiva.isPresent()" before accessing the value.(Îæ¬×8°ûíœ.H¾RMAJORZBUG
+lsquid:S1611o"8Remove the parentheses around the "incidencia" parameter(û†ä8ã¶ÄÕ.HÉRMINORZ
+CODE_SMELL
+ƒsquid:S1192"KDefine a constant instead of duplicating this literal "dd/MM/yyyy" 3 times.(è”Èí8¹Äùœ.HÔRCRITICALZ
+CODE_SMELL
+`squid:S1612o",Replace this lambda with a method reference.(û†ä8ã¶ÄÕ.HÈRMINORZ
+CODE_SMELL

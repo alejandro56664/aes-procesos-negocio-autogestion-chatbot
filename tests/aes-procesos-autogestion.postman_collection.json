@@ -1,0 +1,600 @@
+{
+	"info": {
+		"_postman_id": "baa2b362-3dc4-4812-bba5-012a41ffc72a",
+		"name": "aes-procesos-autogestion",
+		"description": "Pruebas al servicio de drools y el servicio del chatbot para envíar notificaciones.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "bonita",
+			"item": [
+				{
+					"name": "Login service",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "autogestion.bot",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "bpm",
+									"type": "text"
+								},
+								{
+									"key": "redirect",
+									"value": "false",
+									"type": "text"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/bonita/loginservice",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bonita",
+								"loginservice"
+							],
+							"query": [
+								{
+									"key": "Cookie",
+									"value": "JSESSIONID=1FBB0DBE0DE1BB4662AD00CC597EA130; Path=/; HttpOnly",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Process",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Bonita-API-Token",
+								"type": "text",
+								"value": "dee96df6-80ee-46b2-a43f-11cb2b417058"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"tipoDocumentoIdentidad\": \"CC\",\n\t\"numeroDocumentoIdentidad\": \"123123\",\n\t\"tipoServicio\": \"Movil\",\n\t\"idServicio\": \"123123\",\n\t\"descripcionFalla\": \"asdasd\",\n\t\"email\": \"ja@asdad.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/bonita/API/bpm/process?p=0&c=10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bonita",
+								"API",
+								"bpm",
+								"process"
+							],
+							"query": [
+								{
+									"key": "p",
+									"value": "0"
+								},
+								{
+									"key": "c",
+									"value": "10"
+								},
+								{
+									"key": "Cookie",
+									"value": "JSESSIONID=1FBB0DBE0DE1BB4662AD00CC597EA130; Path=/; HttpOnly",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Process Instantiation",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Bonita-API-Token",
+								"value": "d1466888-6079-4402-99bf-10ca4d66162f",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\n\t\"instanciationProcessInput\": {\n\t\t\t\"tipoDocumentoIdentidad\": \"CC\",\n\t\t\t\"numeroDocumentoIdentidad\": \"1096035447\",\n\t\t\t\"tipoServicio\": \"Movil\",\n\t\t\t\"idServicio\": \"3176455493\",\n\t\t\t\"descripcionFalla\": \"asdasd\",\n\t\t\t\"email\": \"ja@asdad.com\"\n\t}\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/bonita/API/bpm/process/6547695301840542888/instantiation",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bonita",
+								"API",
+								"bpm",
+								"process",
+								"6547695301840542888",
+								"instantiation"
+							],
+							"query": [
+								{
+									"key": "Cookie",
+									"value": "JSESSIONID=1FBB0DBE0DE1BB4662AD00CC597EA130; Path=/; HttpOnly",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Task",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Bonita-API-Token",
+								"type": "text",
+								"value": "049582d2-4daa-4d3f-8495-8c75c036fc59"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"tipoDocumentoIdentidad\": \"CC\",\n\t\"numeroDocumentoIdentidad\": \"123123\",\n\t\"tipoServicio\": \"Movil\",\n\t\"idServicio\": \"123123\",\n\t\"descripcionFalla\": \"asdasd\",\n\t\"email\": \"ja@asdad.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/bonita/API/bpm/process?p=0&c=10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bonita",
+								"API",
+								"bpm",
+								"process"
+							],
+							"query": [
+								{
+									"key": "p",
+									"value": "0"
+								},
+								{
+									"key": "c",
+									"value": "10"
+								},
+								{
+									"key": "Cookie",
+									"value": "JSESSIONID=1FBB0DBE0DE1BB4662AD00CC597EA130; Path=/; HttpOnly",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get context Task",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Bonita-API-Token",
+								"type": "text",
+								"value": "128b37c7-9dd1-4bdf-8869-2e216f2bd0a4"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\n\t\"reporteFallaServicioInput\": {\n\t\t\t\"accionesAutomaticasEfectivas\": \"true\"\n\t}\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/bonita/API/bpm/userTask/60190/context",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bonita",
+								"API",
+								"bpm",
+								"userTask",
+								"60190",
+								"context"
+							],
+							"query": [
+								{
+									"key": "Cookie",
+									"value": "JSESSIONID=1FBB0DBE0DE1BB4662AD00CC597EA130; Path=/; HttpOnly",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get context Task 2",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Bonita-API-Token",
+								"type": "text",
+								"value": "128b37c7-9dd1-4bdf-8869-2e216f2bd0a4"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\n\t\"reporteFallaServicioInput\": {\n\t\t\t\"accionesAutomaticasEfectivas\": \"true\"\n\t}\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/bonita/API/bdm/businessData/com.aes.procesos.autogestion.ReporteFallaServicio/118",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bonita",
+								"API",
+								"bdm",
+								"businessData",
+								"com.aes.procesos.autogestion.ReporteFallaServicio",
+								"118"
+							],
+							"query": [
+								{
+									"key": "Cookie",
+									"value": "JSESSIONID=1FBB0DBE0DE1BB4662AD00CC597EA130; Path=/; HttpOnly",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Task",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Bonita-API-Token",
+								"type": "text",
+								"value": "dc90e1f6-a738-43bb-8c2a-b2652468aad6"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\n\t\"reporteFallaServicioInput\": {\n\t\t\t\"accionesAutomaticasEfectivas\": \"true\"\n\t}\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/bonita/API/bpm/userTask/60120/execution?assign=true",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bonita",
+								"API",
+								"bpm",
+								"userTask",
+								"60120",
+								"execution"
+							],
+							"query": [
+								{
+									"key": "assign",
+									"value": "true"
+								},
+								{
+									"key": "Cookie",
+									"value": "JSESSIONID=1FBB0DBE0DE1BB4662AD00CC597EA130; Path=/; HttpOnly",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "drools-ws",
+			"item": [
+				{
+					"name": "http://localhost:8087/rules/init",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8087/rules/init",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"rules",
+								"init"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8087/rules/tipificarServicioContratado/execute",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nombreComercial\": \"Solo TV\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8086/rules/tipificarServicioContratado/execute",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"rules",
+								"tipificarServicioContratado",
+								"execute"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "chatbot",
+			"item": [
+				{
+					"name": "https://api.twilio.com/2010-04-01/Accounts/AC68f2221e23cf2c9cad5ba5cb201e09db/Messages.json",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "e86dda4d8f654f931b13637f158a72ee",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "AC68f2221e23cf2c9cad5ba5cb201e09db",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "To",
+									"value": "whatsapp:+573176455493",
+									"type": "text"
+								},
+								{
+									"key": "From",
+									"value": "whatsapp:+14155238886",
+									"type": "text"
+								},
+								{
+									"key": "Body",
+									"value": "Hola mundo",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://api.twilio.com/2010-04-01/Accounts/AC68f2221e23cf2c9cad5ba5cb201e09db/Messages.json",
+							"protocol": "https",
+							"host": [
+								"api",
+								"twilio",
+								"com"
+							],
+							"path": [
+								"2010-04-01",
+								"Accounts",
+								"AC68f2221e23cf2c9cad5ba5cb201e09db",
+								"Messages.json"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "enviar mensaje usuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"idTemplate\": \"msg_servicio_pendiente_pago\",\n\t\"params\": [\n\t\t{\n\t\t\t\"name\": \"valorPagar\",\n\t\t\t\"value\": \"$50000\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"fechaCorte\",\n\t\t\t\"value\": \"02/02/2020\"\n\t\t}\n\t]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8087/api/notify/botframework/a12eb970-699c-11ea-a088-bb79b38bd060|livechat",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"notify",
+								"botframework",
+								"a12eb970-699c-11ea-a088-bb79b38bd060|livechat"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "invocar formulario de tarea",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8087/api/formTask/fallaContinuaConfirmacion/context/reporteFallaServicio?id=60190",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"formTask",
+								"fallaContinuaConfirmacion",
+								"context",
+								"reporteFallaServicio"
+							],
+							"query": [
+								{
+									"key": "idConversation",
+									"value": "22038840-6d8b-11ea-890f-4f7b2e798e9a%7Clivechat",
+									"disabled": true
+								},
+								{
+									"key": "id",
+									"value": "60190"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

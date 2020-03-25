@@ -1,0 +1,19 @@
+package com.aes.procesos.autogestion.sor.model;
+
+import java.sql.Timestamp;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+public class AfectacionMasiva {
+	
+	@Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private Long id;
+	
+	private String idServicio;
+	
+	private Timestamp timestamp;
+
+}

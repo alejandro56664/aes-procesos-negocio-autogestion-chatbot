@@ -1,0 +1,20 @@
+version: '2'
+
+services:
+
+  drools-wb:
+    container_name: drools-wb
+    image: jboss/drools-workbench-showcase:7.17.0.Final
+    ports:
+      - 8001:8001
+      - 8082:8080
+    network_mode: default
+  kie-server:
+    container_name: kie-server
+    image: jboss/kie-server-showcase:7.17.0.Final
+    links:
+      - drools-wb:kie_wb
+    ports:
+      - 8180:8080
+    network_mode: default
+      

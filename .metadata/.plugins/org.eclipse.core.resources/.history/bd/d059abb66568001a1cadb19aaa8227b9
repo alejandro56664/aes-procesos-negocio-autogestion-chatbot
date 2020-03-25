@@ -1,0 +1,56 @@
+package com.aes.procesos.autogestion.sor.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.aes.procesos.autogestion.sor.model.dto.ResultadoEjecucionAccionesCorrectivasDTO;
+import com.aes.procesos.autogestion.sor.repositories.RegistroAccionCorrectivaRepository;
+
+@Service
+public class EjecutorAccionCorrectivaService {
+	
+	@Autowired
+	private RegistroAccionCorrectivaRepository registro;
+
+
+	public ResultadoEjecucionAccionesCorrectivasDTO ejecutar(String idServicio, String accion) {
+		ResultadoEjecucionAccionesCorrectivasDTO resultadoDTO = new ResultadoEjecucionAccionesCorrectivasDTO();
+		
+		String codigo;
+		String mensaje;
+		
+		//ejecutar la acción requerida
+		try {
+			codigo = ejecutar();
+			mensaje = "Resultado operación: " +codigo;
+			
+		} catch (InterruptedException e) {
+			codigo = "EXCEPTION";
+			mensaje = e.getMessage();
+			// Restore interrupted state...
+		    Thread.currentThread().interrupt();
+		}
+		
+		//registrar resultado
+
+		//empaquetar
+		resultadoDTO.setTipoAccion(accion);
+		resultadoDTO.setCodigo(codigo);
+		resultadoDTO.setMensaje(mensaje);
+		
+		return resultadoDTO;
+	}
+	
+	
+	
+	/*
+	 * Esta funcion emula los servicios externos que realizan las operaciones
+	 */
+	
+	private String  ejecutar() throws InterruptedException {
+		Thread.sleep(1000L);
+		return "OK";
+		
+	}
+
+}
