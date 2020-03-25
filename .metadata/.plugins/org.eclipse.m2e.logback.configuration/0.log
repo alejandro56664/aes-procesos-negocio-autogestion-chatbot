@@ -12786,3 +12786,11 @@ org.xml.sax.SAXParseException: src-resolve: No se puede resolver el nombre 'tns:
 2020-03-25 00:02:35,822 [Worker-250: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
 2020-03-25 00:02:35,824 [Worker-250: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
 2020-03-25 00:02:35,825 [Worker-250: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-03-25 00:02:35,826 [Worker-250: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ws\ujaveriana\procesos de negocio\entrega final\autogestion-sor\src\test\resources
+2020-03-25 00:08:02,423 [Worker-256: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Ignored given or default xjbSources [C:\ws\ujaveriana\procesos de negocio\entrega final\autogestion-sor\src\main\xjb], since it is not an existent file or directory.
+2020-03-25 00:08:02,424 [Worker-256: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - No changes detected in schema or binding files - skipping JAXB generation.
+2020-03-25 00:08:02,426 [Worker-256: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-03-25 00:08:02,427 [Worker-256: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-03-25 00:08:02,429 [Worker-256: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-03-25 00:08:02,431 [Worker-256: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-03-25 00:08:02,431 [Worker-256: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ws\ujaveriana\procesos de negocio\entrega final\autogestion-sor\src\test\resources
