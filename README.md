@@ -1,6 +1,6 @@
 # Entrega Final Procesos de Negocio 2020
 
-## Instalaci�n DOCKER
+## Instalación DOCKER
 
 Fuente: https://www.hostinger.com/tutorials/how-to-install-and-use-docker-on-ubuntu/
 
@@ -14,7 +14,7 @@ sudo apt update
 
 sudo apt install docker-ce
 
-## Instalaci�n DOCKER-COMPOSE
+## Instalación DOCKER-COMPOSE
 
 Fuente: https://phoenixnap.com/kb/install-docker-compose-ubuntu
 
@@ -28,14 +28,14 @@ docker-compose -version
 
 ## Componentes
 
-Integraci�n con redes sociales: Twilio - WhatsApp
+Integración con redes sociales: Twilio - WhatsApp
 
 Salesforce      Ok
 DROOLs          Ok
 Bonita          Ok
 Docker          Ok
 
-## Configuraci�n Bonita
+## Configuración Bonita
 
 Fuente: https://hub.docker.com/_/bonita/
 
@@ -54,17 +54,17 @@ http://52.179.152.232:8080/bonita
 
 usuario: tech_user, pass: secret
 
-## Configuraci�n DROOLS - KIE Server
+## Configuración DROOLS - KIE Server
 
-Fuente: https://medium.com/@hasnat.saeed/setup-jboss-drools-workbench-and-kie-execution-server-on-wildfly-14-on-ubuntu-18-04-using-docker-e87b10f301ad
+Fuente: <https://medium.com/@hasnat.saeed/setup-jboss-drools-workbench-and-kie-execution-server-on-wildfly-14-on-ubuntu-18-04-using-docker-e87b10f301ad>
 
 sudo docker-compose -f drools-stack.yml up -d
 
 Entramos al link
-http://52.179.152.232:8081/business-central/kie-wb.jsp
+<http://52.179.152.232:8081/business-central/kie-wb.jsp>
 usuario: admin, pass: admin
 
-http://52.179.152.232:8180/kie-server/services/rest/server
+<http://52.179.152.232:8180/kie-server/services/rest/server>
 
 A mas detalle:
 sudo docker run -p 8081:8080 -p 8001:8001 -e JAVA_OPTS="-server -Xms1024m -Xmx1024m -Djava.net.preferIPv4Stack=true -Dfile.encoding=UTF-8" -v /home/ubuntu/wb_git:/opt/jboss/wildfly/bin/.niogit:Z -d --name drools-workbench jboss/drools-workbench-showcase:latest
