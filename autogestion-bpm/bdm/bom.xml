@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<businessObjectModel modelVersion="1.0" productVersion="7.10.0">
+    <businessObjects>
+        <businessObject qualifiedName="com.aes.procesos.autogestion.Incidencia">
+            <fields>
+                <field type="STRING" length="255" name="timestamp1" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="titulo" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="descripcion" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="estado" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="fechaEstimadaResolucion" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="tipo" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.aes.procesos.autogestion.ReporteFallaServicio">
+            <fields>
+                <field type="STRING" length="255" name="tipoDocumentoIdentidad" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="numeroDocumentoIdentidad" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="tipoServicio" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="idServicio" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="descripcionFalla" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="email" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="nombreUsuario" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="fromId" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="conversationId" nullable="true" collection="false"/>
+                <field type="BOOLEAN" length="255" name="isUsuarioRegistrado" nullable="true" collection="false"/>
+                <field type="BOOLEAN" length="255" name="accionesAutomaticasEfectivas" nullable="true" collection="false"/>
+                <field type="BOOLEAN" length="255" name="accionesAgenteEfectivas" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.aes.procesos.autogestion.TipificacionServicio">
+            <fields>
+                <field type="BOOLEAN" length="255" name="tv" nullable="true" collection="false"/>
+                <field type="BOOLEAN" length="255" name="internet" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="tipoInternet" nullable="true" collection="false"/>
+                <field type="BOOLEAN" length="255" name="voz" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="tipoVoz" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+    </businessObjects>
+</businessObjectModel>

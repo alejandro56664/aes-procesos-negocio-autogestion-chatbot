@@ -1,5 +1,0 @@
-package com.aes.procesos.autogestion.sor.repositories;
-
-public class RegistroAccionesCorrectivasRepository {
-
-}

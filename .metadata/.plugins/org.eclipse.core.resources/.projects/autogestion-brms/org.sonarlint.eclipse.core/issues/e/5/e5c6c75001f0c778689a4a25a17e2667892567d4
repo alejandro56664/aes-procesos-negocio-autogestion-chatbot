@@ -1,13 +1,0 @@
-
-squid:S00116"ZRename this field "CLASSPATH_RULES" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ï‹éõ8³Ô‡‹Ž.H»RMINORZ
-CODE_SMELL
-’squid:S1488S"`Immediately return this expression instead of assigning it to the temporary variable "ksession".(¶Þ¸ÒùÿÿÿÿHƒRMINORZ
-CODE_SMELL
-Usquid:S1170"!Make this final field static too.(ï‹éõ8³Ô‡‹Ž.HºRMINORZ
-CODE_SMELL
-psquid:S1854J">Remove this useless assignment to local variable "kieBuilder".(á—ØµýÿÿÿÿH‚RMAJORZ
-CODE_SMELL
-ˆsquid:S1488d"[Immediately return this expression instead of assigning it to the temporary variable "drl".(¥†ï¤HýRMINORZ
-CODE_SMELL
-Zsquid:S1604'"(Make this anonymous inner class a lambda(¾ý›«ûÿÿÿÿHþRMAJORZ
-CODE_SMELL

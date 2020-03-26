@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<organization:Organization xmlns:organization="http://documentation.bonitasoft.com/organization-xml-schema/1.1" name="Empresa de Telecomunicaciones" description="Representación de la organización de Telecomunicaciones">
+  <customUserInfoDefinitions/>
+  <users>
+    <user userName="piter.albeiro">
+      <firstName>Piter</firstName>
+      <lastName>Albeiro</lastName>
+      <title>Sr</title>
+      <jobTitle>Revisor Legal</jobTitle>
+      <manager></manager>
+      <personalData/>
+      <professionalData/>
+      <password encrypted="false">bpm</password>
+      <customUserInfoValues/>
+    </user>
+    <user userName="rogelio.patequiva">
+      <firstName>Rogelio</firstName>
+      <lastName>Patequiva</lastName>
+      <title>Sr</title>
+      <jobTitle>Coordinador</jobTitle>
+      <manager></manager>
+      <personalData/>
+      <professionalData/>
+      <password encrypted="false">bpm</password>
+      <customUserInfoValues/>
+    </user>
+    <user userName="autogestion.bot">
+      <firstName>Bot</firstName>
+      <lastName>Autogestion</lastName>
+      <manager></manager>
+      <personalData/>
+      <professionalData/>
+      <password encrypted="false">bpm</password>
+      <customUserInfoValues/>
+    </user>
+    <user userName="pedro.gonzalez">
+      <firstName>Pedro</firstName>
+      <lastName>Gonzalez</lastName>
+      <manager></manager>
+      <personalData/>
+      <professionalData/>
+      <password encrypted="false">bpm</password>
+      <customUserInfoValues/>
+    </user>
+  </users>
+  <roles>
+    <role name="Soporte N1">
+      <displayName>Soporte Técnico Nivel 1</displayName>
+      <description>Encargado del area de soporte N1 para la revisión de las solicitudes</description>
+    </role>
+    <role name="Soporte N2">
+      <displayName>Soporte Técnico Nivel 2</displayName>
+      <description>Encargado del area de soporte N2 para la revisión de las solicitudes</description>
+    </role>
+    <role name="Cliente B2C">
+      <displayName>Cliente B2C</displayName>
+    </role>
+  </roles>
+  <groups>
+    <group name="Empresa Telecomunicaciones Colombia">
+      <displayName>Empresa Telecomunicaciones Colombia</displayName>
+    </group>
+    <group name="Soporte Tecnico" parentPath="/Empresa Telecomunicaciones Colombia">
+      <displayName>Soporte Técnico</displayName>
+      <description>Equipo encargado de la revisión técnica</description>
+    </group>
+    <group name="OAC" parentPath="/Empresa Telecomunicaciones Colombia">
+      <displayName>Oficina Atención al Cliente</displayName>
+    </group>
+    <group name="Clientes B2C" parentPath="/Empresa Telecomunicaciones Colombia">
+      <displayName>Clientes B2C</displayName>
+    </group>
+  </groups>
+  <memberships>
+    <membership>
+      <userName>piter.albeiro</userName>
+      <roleName>Soporte N2</roleName>
+      <groupName>Soporte Tecnico</groupName>
+      <groupParentPath>/Empresa Telecomunicaciones Colombia</groupParentPath>
+    </membership>
+    <membership>
+      <userName>rogelio.patequiva</userName>
+      <roleName>Soporte N2</roleName>
+      <groupName>Soporte Tecnico</groupName>
+      <groupParentPath>/Empresa Telecomunicaciones Colombia</groupParentPath>
+    </membership>
+    <membership>
+      <userName>autogestion.bot</userName>
+      <roleName>Cliente B2C</roleName>
+      <groupName>Clientes B2C</groupName>
+      <groupParentPath>/Empresa Telecomunicaciones Colombia</groupParentPath>
+    </membership>
+    <membership>
+      <userName>pedro.gonzalez</userName>
+      <roleName>Soporte N1</roleName>
+      <groupName>OAC</groupName>
+      <groupParentPath>/Empresa Telecomunicaciones Colombia</groupParentPath>
+    </membership>
+  </memberships>
+</organization:Organization>

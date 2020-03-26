@@ -71,7 +71,7 @@ sudo docker run -p 8081:8080 -p 8001:8001 -e JAVA_OPTS="-server -Xms1024m -Xmx10
 
 sudo docker run -p 8180:8080 -d --name kie-server --link drools-workbench:kie-wb jboss/kie-server-showcase:latest
 
-## Configuraci�n clientes de prueba
+## Configuración clientes de prueba
 
 ### Lineas Moviles
 
