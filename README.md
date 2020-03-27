@@ -16,6 +16,8 @@ En el repositorio ponemos a disposición:
 - proyecto de PowerBI
 - algo de documentación como diagramas y una presentación.
 
+Para finalizar, se puede ver algunas explicaciones en video [aquí](https://www.youtube.com/playlist?list=PLVpdjqPRHvN48MK2RlaElaxpPITc0hSp8)
+
 
 ## Instalación DOCKER
 
@@ -56,9 +58,9 @@ docker-compose -version
 
 Fuente: https://hub.docker.com/_/bonita/
 
-En el portal de Azure hay que garantizar en el blade de Configuraci�n > Redes que las reglas de firewall para el puerto 8080 esten abiertas
+En el portal de Azure hay que garantizar en el blade de Configuración > Redes que las reglas de firewall para el puerto 8080 esten abiertas
 
-Vamos a usar la configuraci�n del stack de bonita + postgres SQL
+Vamos a usar la configuración del stack de bonita + postgres SQL
 
 Run sudo docker stack deploy -c bonita-stack.yml bonita-stack (or docker-compose -f bonita-stack.yml up), wait for it to initialize completely, and visit http://swarm-ip:8080, http://localhost:8080, or http://host-ip:8080 (as appropriate).
 
