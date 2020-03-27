@@ -420,12 +420,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8087/rules/init",
+							"raw": "http://localhost:8086/rules/init",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8087",
+							"port": "8086",
 							"path": [
 								"rules",
 								"init"
@@ -435,7 +435,7 @@
 					"response": []
 				},
 				{
-					"name": "http://localhost:8087/rules/tipificarServicioContratado/execute",
+					"name": "http://localhost:8086/rules/tipificarServicioContratado/execute",
 					"request": {
 						"method": "POST",
 						"header": [],

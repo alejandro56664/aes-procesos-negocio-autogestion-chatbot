@@ -1,5 +1,22 @@
 # Entrega Final Procesos de Negocio 2020
 
+## Introducción
+
+En este repositorio se guardan todos los componentes construidos para la entrega final de la materia procesos de negocio del año 2020-I. 
+El proceso consiste en el manejo automático del reporte de fallas fijas y móviles para una empresa de Telecomunicación y su gestión a través de un
+canal digital como WhatsApp.
+
+En el repositorio ponemos a disposición:
+- el proyecto de bonita
+- el chatbot
+- la capa de integración
+- el script de setup de la base de datos (con datos de prueba)
+- proyecto en Postman para probar servicios REST
+- proyecto en SOAPUI para probar servicios SOAP
+- proyecto de PowerBI
+- algo de documentación como diagramas y una presentación.
+
+
 ## Instalación DOCKER
 
 Fuente: https://www.hostinger.com/tutorials/how-to-install-and-use-docker-on-ubuntu/
@@ -28,12 +45,12 @@ docker-compose -version
 
 ## Componentes
 
-Integración con redes sociales: Twilio - WhatsApp
-
-Salesforce      Ok
-DROOLs          Ok
-Bonita          Ok
-Docker          Ok
+- Integración con redes sociales: Twilio - WhatsApp
+- Salesforce      Ok
+- DROOLs          Ok
+- Bonita          Ok
+- Docker          Ok
+- PowerBI	      Ok
 
 ## Configuración Bonita
 
@@ -93,9 +110,9 @@ sudo docker run -p 8180:8080 -d --name kie-server --link drools-workbench:kie-wb
 ## Auditoria Codigos
 
 - ST001: VALIDAR_CLIENTE
-- ST001: FIN_USUARIO_NO_REGISTRADO
+- ST002: FIN_USUARIO_NO_REGISTRADO
 - ST003: VALIDAR_ESTADO_GENERAL_SERVICIO
-- ST003: VALIDAR_ESTADO_SERVICIO_HADA
+- ST004: VALIDAR_ESTADO_SERVICIO_HADA
 - ST005: FIN_CLIENTE_SERVICIO_ACTIVO
 - ST006: VALIDAR_ESTADO_FINANCIERO_HADA
 - ST007: FIN_INFORMAR_SERVICIO_BLOQUEADO
@@ -107,10 +124,21 @@ sudo docker run -p 8180:8080 -d --name kie-server --link drools-workbench:kie-wb
 - ST016: VALIDAR_REGLAS_NEGOCIO
 - ST017: FIN_SERVICIO_AFECTADO_FALLA_MASIVA
 - ST023: FIN_GENERACION_AVERIA
-- ST024:FIN_FALLA_RESUELTA_AUTOMATICAMENTE
+- ST024: FIN_FALLA_RESUELTA_AUTOMATICAMENTE
 - ST026: FIN_FALLA_RESUELTA_ASESOR
 - ST027: FIN_GENARACION_PETICION
 
+### Finales
+- ST001: FIN_USUARIO_NO_REGISTRADO
+- ST005: FIN_CLIENTE_SERVICIO_ACTIVO
+- ST007: FIN_INFORMAR_SERVICIO_BLOQUEADO
+- ST010: FIN_SOLICITUD_REACTIVACION
+- ST014: FIN_SERVICIO_CON_PETICIONES_ABIERTAS
+- ST017: FIN_SERVICIO_AFECTADO_FALLA_MASIVA
+- ST023: FIN_GENERACION_AVERIA
+- ST024: FIN_FALLA_RESUELTA_AUTOMATICAMENTE
+- ST026: FIN_FALLA_RESUELTA_ASESOR
+- ST027: FIN_GENARACION_PETICION
 ## Twilio Sandbox
 
 join dangerous-percent

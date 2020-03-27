@@ -21,6 +21,24 @@
         </xs:complexType>
     </xs:element>
     
+     <xs:element name="registrarSatisfaccionRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="idServicio" type="xs:string"/>
+                <xs:element name="sesion" type="xs:string"/>
+                <xs:element name="codSatisfaccion" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="registrarSatisfaccionResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="resultado" type="tns:resultadoRegistro"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
     <xs:element name="registrarAuditoriaRequest">
         <xs:complexType>
             <xs:sequence>

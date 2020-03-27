@@ -26,6 +26,8 @@ import com.aes.procesos.autogestion_integracion_sor.GenerarPeticionRequest;
 import com.aes.procesos.autogestion_integracion_sor.GenerarPeticionResponse;
 import com.aes.procesos.autogestion_integracion_sor.RegistrarAuditoriaRequest;
 import com.aes.procesos.autogestion_integracion_sor.RegistrarAuditoriaResponse;
+import com.aes.procesos.autogestion_integracion_sor.RegistrarSatisfaccionRequest;
+import com.aes.procesos.autogestion_integracion_sor.RegistrarSatisfaccionResponse;
 import com.aes.procesos.autogestion_integracion_sor.ValidarEstadoServicioByIdRequest;
 import com.aes.procesos.autogestion_integracion_sor.ValidarEstadoServicioByIdResponse;
 
@@ -90,6 +92,20 @@ public class IntegracionSOREndpoint {
 													request.getCanal());
 		
 		GenerarPeticionResponse response = new GenerarPeticionResponse();
+		response.setResultado(traductor.toResultadoRegistro(id));
+		return response;
+	}
+	
+	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "registrarSatisfaccionRequest")
+	@ResponsePayload
+	public RegistrarSatisfaccionResponse registrarSatisfaccion(@RequestPayload RegistrarSatisfaccionRequest request) {
+		
+		Long id;
+		id = gestorIncidencia.registrarSatisfaccion(normalizador.normalizar(request.getIdServicio()), 
+														request.getCodSatisfaccion(),
+														request.getSesion());
+		
+		RegistrarSatisfaccionResponse response = new RegistrarSatisfaccionResponse();
 		response.setResultado(traductor.toResultadoRegistro(id));
 		return response;
 	}

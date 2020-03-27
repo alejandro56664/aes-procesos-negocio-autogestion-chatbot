@@ -9,7 +9,7 @@ const {
   WaterfallDialog
 } = require('botbuilder-dialogs');
 
-const WATERFALL_DIALOG = 'WATERFALL_DIALOG_SU';
+const WATERFALL_DIALOG = 'WATERFALL_DIALOG_NSU';
 
 const SATISFACCION_USUARIO_CHOICE_PROMPT = 'SATISFACCION_USUARIO_CHOICE_PROMPT';
 
@@ -23,7 +23,7 @@ class SatisfaccionUsuarioFormTask extends ComponentDialog {
 
 
       this.addDialog(new WaterfallDialog(WATERFALL_DIALOG, [
-          this.fallaContinuaConfirmacion.bind(this),
+          this.satisfaccionUsuario.bind(this),
           this.summaryStep.bind(this)
       ]));
 
@@ -47,24 +47,24 @@ class SatisfaccionUsuarioFormTask extends ComponentDialog {
       }
   }
 
-  async fallaContinuaConfirmacion(step) {
+  async satisfaccionUsuario(step) {
       
       // WaterfallStep always finishes with the end of the Waterfall or with another dialog; here it is a Prompt Dialog.
       // Running a prompt here means the next WaterfallStep will be run when the users response is received.
-      return await step.prompt(FALLA_CONTINUA_CHOICE_PROMPT, {
-          prompt: '¿La falla que reportaste persiste?',
-          choices: ChoiceFactory.toChoices(['Continua', '¡Ya se arregló!'])
+      return await step.prompt(SATISFACCION_USUARIO_CHOICE_PROMPT, {
+          prompt: '¿Cómo te pareció la experiencia en este canal?',
+          choices: ChoiceFactory.toChoices(['\ud83d\udc4d ¡Super!', '\ud83d\udc4e Meh'])
       });
   }
 
 
   async summaryStep(step) {
-    let fallaContinua =  step.result.value === 'Continua'
+    let satisfaccion =  step.result.value === '\ud83d\udc4d ¡Super!' ? 'POSITIVO': 'NEGATIVO'
       
     try{
-        console.log(`Se va a ejecutar la tarea BPM ${this.idTarea}, con resultado: ${fallaContinua}`)
-        await this.procesoBPM.ejecutarTareaUsuario(this.idTarea, {accionesAutomaticasEfectivas: !fallaContinua})
-        await step.context.sendActivity('Gracia por tu respuesta, por favor espera un momento.')
+        console.log(`Se va a ejecutar la tarea BPM ${this.idTarea}, con resultado: ${satisfaccion}`)
+        await this.procesoBPM.ejecutarTareaUsuario(this.idTarea, {satisfaccion: satisfaccion})
+        await step.context.sendActivity('Gracias por ayudarnos a mejorar')
     } catch(ex){
         console.log(ex)
         await step.context.sendActivity('Parece que hubo un problema procesando tu respuesta, por favor intentalo mas tarde');
@@ -82,4 +82,4 @@ class SatisfaccionUsuarioFormTask extends ComponentDialog {
 
 }
 
-module.exports.FallaContinuaConfirmacionFormTask = FallaContinuaConfirmacionFormTask;
+module.exports.SatisfaccionUsuarioFormTask = SatisfaccionUsuarioFormTask;

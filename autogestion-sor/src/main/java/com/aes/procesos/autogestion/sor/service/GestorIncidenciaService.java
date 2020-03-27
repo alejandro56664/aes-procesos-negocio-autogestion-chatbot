@@ -10,9 +10,11 @@ import org.springframework.stereotype.Service;
 
 import com.aes.procesos.autogestion.sor.model.Auditoria;
 import com.aes.procesos.autogestion.sor.model.Incidencia;
+import com.aes.procesos.autogestion.sor.model.Satisfaccion;
 import com.aes.procesos.autogestion.sor.model.ServicioContratado;
 import com.aes.procesos.autogestion.sor.repositories.AuditoriaRepository;
 import com.aes.procesos.autogestion.sor.repositories.IncidenciaRepository;
+import com.aes.procesos.autogestion.sor.repositories.SatisfaccionRepository;
 import com.aes.procesos.autogestion.sor.repositories.ServicioContratadoRepository;
 
 @Service
@@ -26,6 +28,23 @@ public class GestorIncidenciaService {
 	
 	@Autowired
 	private AuditoriaRepository auditoriaRepo;
+	
+	
+	@Autowired
+	private SatisfaccionRepository satisfaccionRepo;
+	
+	
+	public Long registrarSatisfaccion(String idServicio, String codSatisfaccion, String sesion) {
+		Satisfaccion registro = new Satisfaccion();
+		
+		registro.setIdServicio(idServicio);
+		registro.setCodSatisfaccion(codSatisfaccion);
+		registro.setSesion(sesion);
+		registro.setTimestamp(new Timestamp(System.currentTimeMillis()));
+		registro = satisfaccionRepo.save(registro);
+		return registro.getId();
+	}
+	
 
 	public long registrarAuditoria(String idServicio, String codigo, String mensaje, String sesion) {
 		

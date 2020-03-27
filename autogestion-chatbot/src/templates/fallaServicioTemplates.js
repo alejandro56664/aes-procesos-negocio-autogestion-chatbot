@@ -37,11 +37,11 @@ module.exports.fallaServicioTemplates = [
   },
   {
     id: "msg_falla_resuelta_automaticamente",
-    content: "¡Enhorabuena! nos complace mucho que tu falla se haya resuelto, recuerda, cuando tengas algún inconveniente con tus servicios fijos o moviles, estamos aquí 24/7 para servirte y lo mejor todo fué automaticamente! \uD83D\uDE0A"
+    content: "Nos complace mucho que tu falla se haya resuelto, recuerda, cuando tengas algún inconveniente con tus servicios fijos o moviles, estamos aquí 24/7 para servirte y lo mejor todo fué automaticamente! \uD83D\uDE0A"
   },
   {
     id: "msg_falla_resuelta",
-    content: "¡Enhorabuena! nos complace mucho que tu falla se haya resuelto, recuerda, cuando tengas algún inconveniente con tus servicios fijos o moviles, estamos aquí 24/7 para servirte. \uD83D\uDE0A"
+    content: "Nos complace mucho que tu falla se haya resuelto, recuerda, cuando tengas algún inconveniente con tus servicios fijos o moviles, estamos aquí 24/7 para servirte. \uD83D\uDE0A"
   },
   {
     id:"msg_generacion_PQR",
@@ -51,5 +51,9 @@ module.exports.fallaServicioTemplates = [
   {
     id: "fallaContinuaConfirmacionRequest",
     content: "Hemos realizado algunas acciones para tratar de corregir tu problema, así que te invitamos a que verifiques tus servicios ¿Vale?"
+  },
+  {
+    id: "satisfaccionUsuarioRequest",
+    content: "Para nosotros es muy importante tu opinión. Nos gustaría que nos respondieras una pregunta ¿Te parece?"
   }
 ]

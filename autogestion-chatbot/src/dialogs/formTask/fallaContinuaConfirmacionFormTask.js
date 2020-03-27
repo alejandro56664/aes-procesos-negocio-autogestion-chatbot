@@ -64,7 +64,7 @@ class FallaContinuaConfirmacionFormTask extends ComponentDialog {
     try{
         console.log(`Se va a ejecutar la tarea BPM ${this.idTarea}, con resultado: ${fallaContinua}`)
         await this.procesoBPM.ejecutarTareaUsuario(this.idTarea, {accionesAutomaticasEfectivas: !fallaContinua})
-        await step.context.sendActivity('Gracia por tu respuesta, por favor espera un momento.')
+        await step.context.sendActivity('Gracias por tu respuesta, por favor espera un momento.')
     } catch(ex){
         console.log(ex)
         await step.context.sendActivity('Parece que hubo un problema procesando tu respuesta, por favor intentalo mas tarde');

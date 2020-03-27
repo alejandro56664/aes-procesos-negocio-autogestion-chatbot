@@ -1,7 +1,7 @@
 const restify = require('restify');
 const path = require('path');
 
-const defaultChannel = 'whatsapp' //'botframework'
+
 
 const { Configuration } = require('./configuration')
 const { ConsoleAdapter } = require('./adapters/consoleAdapter');
@@ -19,6 +19,7 @@ const { RegistroPQRDialog } = require('./dialogs/registroPQRDialog');
 
 //FormTask
 const { FallaContinuaConfirmacionFormTask } = require('./dialogs/formTask/fallaContinuaConfirmacionFormTask');
+const { SatisfaccionUsuarioFormTask } = require('./dialogs/formTask/satisfaccionUsuarioFormTask');
 
 //plantillas notificaciones
 const { TemplateManager } = require('./templates/templateManager')
@@ -31,6 +32,7 @@ const { BonitaIntegration } = require('./integrations/bonita')
 const ENV_FILE = path.join(__dirname, '.env');
 require('dotenv').config({ path: ENV_FILE });
 
+const defaultChannel = Configuration.defaultChannel;
 
 //adapters
 const consoleAdapter = new ConsoleAdapter();
@@ -60,11 +62,13 @@ const reporteFallaDialog = new ReporteFallaServicioDialog(userState, proceso);
 const registroPQRDialog = new RegistroPQRDialog(userState, proceso);
 //form task
 const fallaContinuaConfirmacionFormTask = new FallaContinuaConfirmacionFormTask(userState, proceso)
+const satisfaccionUsuarioFormTask = new SatisfaccionUsuarioFormTask(userState, proceso)
 
 const dialogs = {
     reporteFalla: reporteFallaDialog,
     reportePQR: registroPQRDialog,
     fallaContinuaConfirmacion: fallaContinuaConfirmacionFormTask,
+    satisfaccionUsuario: satisfaccionUsuarioFormTask,
     default: reporteFallaDialog
 }
 //Aqu
@@ -91,6 +95,8 @@ server.post('/api/notify/:iduser', async (req, res) => {
     const templateFilled = templateManager.findTemplateAndReplaceParams(req.body.idTemplate, req.body.params)
     await continueConversation(defaultChannel, conversationReference, templateFilled)
 
+    //no estoy seguro de esto
+    bot.setDialog(req.params.iduser, 'default');
     //build response
     res.setHeader('Content-Type', 'text/html');
     res.writeHead(200);
